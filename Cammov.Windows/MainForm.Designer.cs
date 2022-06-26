@@ -33,6 +33,7 @@
             this.cameraButton = new System.Windows.Forms.Button();
             this.sensitivityTrackBar = new System.Windows.Forms.TrackBar();
             this.sensitivityLabel = new System.Windows.Forms.Label();
+            this.separationPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.cameraPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensitivityTrackBar)).BeginInit();
             this.SuspendLayout();
@@ -41,10 +42,11 @@
             // 
             this.cameraPictureBox.Location = new System.Drawing.Point(12, 12);
             this.cameraPictureBox.Name = "cameraPictureBox";
-            this.cameraPictureBox.Size = new System.Drawing.Size(253, 186);
+            this.cameraPictureBox.Size = new System.Drawing.Size(252, 186);
             this.cameraPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cameraPictureBox.TabIndex = 1;
             this.cameraPictureBox.TabStop = false;
+            this.cameraPictureBox.Click += new System.EventHandler(this.cameraPictureBox_Click);
             // 
             // cameraCheckBox
             // 
@@ -90,11 +92,22 @@
             this.sensitivityLabel.Text = "Sensitivity (1 - 256):";
             this.sensitivityLabel.Click += new System.EventHandler(this.sensitivityLabel_Click);
             // 
+            // separationPanel
+            // 
+            this.separationPanel.BackColor = System.Drawing.Color.Red;
+            this.separationPanel.ForeColor = System.Drawing.Color.Red;
+            this.separationPanel.Location = new System.Drawing.Point(136, 12);
+            this.separationPanel.Name = "separationPanel";
+            this.separationPanel.Size = new System.Drawing.Size(1, 186);
+            this.separationPanel.TabIndex = 11;
+            this.separationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.separationPanel_Paint);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 210);
+            this.Controls.Add(this.separationPanel);
             this.Controls.Add(this.sensitivityLabel);
             this.Controls.Add(this.sensitivityTrackBar);
             this.Controls.Add(this.cameraButton);
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Button cameraButton;
         private System.Windows.Forms.TrackBar sensitivityTrackBar;
         private System.Windows.Forms.Label sensitivityLabel;
+        private System.Windows.Forms.Panel separationPanel;
     }
 }

@@ -56,5 +56,13 @@ namespace Cammov.Windows
         {
             App.Scanner.Sensitivity = (byte)(256 - sensitivity);
         }
+
+        private void separationPanel_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void cameraPictureBox_Click(object sender, System.EventArgs e)
+        {
+        }
     }
 }
