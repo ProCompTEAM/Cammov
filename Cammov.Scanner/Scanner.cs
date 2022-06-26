@@ -6,8 +6,9 @@ namespace Cammov.Scanner
 {
     public class Scanner
     {
-        private const byte ZeroOffset = 0x00;
-        private const byte FillOffset = 0xFF;
+        public byte ZeroOffset { get; set; } = 0x00;
+
+        public byte FillOffset { get; set; } = 0xFF;
 
         public byte Sensitivity { get; set; } = 128;
 

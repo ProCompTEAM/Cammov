@@ -34,6 +34,7 @@
             this.sensitivityTrackBar = new System.Windows.Forms.TrackBar();
             this.sensitivityLabel = new System.Windows.Forms.Label();
             this.separationPanel = new System.Windows.Forms.Panel();
+            this.goButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cameraPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensitivityTrackBar)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             this.cameraButton.Location = new System.Drawing.Point(271, 12);
             this.cameraButton.Name = "cameraButton";
-            this.cameraButton.Size = new System.Drawing.Size(132, 30);
+            this.cameraButton.Size = new System.Drawing.Size(85, 30);
             this.cameraButton.TabIndex = 5;
             this.cameraButton.Text = "Camera View";
             this.cameraButton.UseVisualStyleBackColor = true;
@@ -102,11 +103,24 @@
             this.separationPanel.TabIndex = 11;
             this.separationPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.separationPanel_Paint);
             // 
+            // goButton
+            // 
+            this.goButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.goButton.ForeColor = System.Drawing.Color.Blue;
+            this.goButton.Location = new System.Drawing.Point(362, 12);
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(41, 30);
+            this.goButton.TabIndex = 12;
+            this.goButton.Text = "GO";
+            this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 210);
+            this.Controls.Add(this.goButton);
             this.Controls.Add(this.separationPanel);
             this.Controls.Add(this.sensitivityLabel);
             this.Controls.Add(this.sensitivityTrackBar);
@@ -131,5 +145,6 @@
         private System.Windows.Forms.TrackBar sensitivityTrackBar;
         private System.Windows.Forms.Label sensitivityLabel;
         private System.Windows.Forms.Panel separationPanel;
+        private System.Windows.Forms.Button goButton;
     }
 }

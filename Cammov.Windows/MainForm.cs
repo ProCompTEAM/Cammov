@@ -63,6 +63,26 @@ namespace Cammov.Windows
 
         private void cameraPictureBox_Click(object sender, System.EventArgs e)
         {
+            ReverseCameraColors();
+        }
+
+        private void ReverseCameraColors()
+        {
+            var fillOffset = App.Scanner.ZeroOffset;
+            var zeroOffset = App.Scanner.FillOffset;
+
+            App.Scanner.ZeroOffset = zeroOffset;
+            App.Scanner.FillOffset = fillOffset;
+        }
+
+        private void goButton_Click(object sender, System.EventArgs e)
+        {
+            StartGoMode();
+        }
+
+        private void StartGoMode()
+        {
+
         }
     }
 }
