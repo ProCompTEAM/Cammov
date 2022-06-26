@@ -57,6 +57,22 @@ namespace Cammov.Windows
             App.Scanner.Sensitivity = (byte)(256 - sensitivity);
         }
 
+        private void calibrationTrackBar_Scroll(object sender, System.EventArgs e)
+        {
+            UpdateCalibration(calibrationTrackBar.Value);
+        }
+
+        private void calibrationLabel_Click(object sender, System.EventArgs e)
+        {
+            calibrationTrackBar.Value = calibrationTrackBar.Maximum / 2;
+            UpdateCalibration(calibrationTrackBar.Value);
+        }
+
+        private void UpdateCalibration(int calibration)
+        {
+            App.Scanner.Calibration = calibration;
+        }
+
         private void separationPanel_Paint(object sender, PaintEventArgs e)
         {
         }
@@ -82,7 +98,9 @@ namespace Cammov.Windows
 
         private void StartGoMode()
         {
+            cameraCheckBox.Checked = false;
 
+            new GoForm().ShowDialog();
         }
     }
 }

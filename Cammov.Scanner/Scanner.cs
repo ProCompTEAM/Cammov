@@ -12,7 +12,7 @@ namespace Cammov.Scanner
 
         public byte Sensitivity { get; set; } = 128;
 
-        public byte Calibration { get; set; } = 10;
+        public int Calibration { get; set; } = 10;
 
         private readonly VideoCapture capture;
 

@@ -35,8 +35,11 @@
             this.sensitivityLabel = new System.Windows.Forms.Label();
             this.separationPanel = new System.Windows.Forms.Panel();
             this.goButton = new System.Windows.Forms.Button();
+            this.calibrationLabel = new System.Windows.Forms.Label();
+            this.calibrationTrackBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.cameraPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensitivityTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calibrationTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // cameraPictureBox
@@ -52,7 +55,7 @@
             // cameraCheckBox
             // 
             this.cameraCheckBox.AutoSize = true;
-            this.cameraCheckBox.Location = new System.Drawing.Point(279, 179);
+            this.cameraCheckBox.Location = new System.Drawing.Point(279, 183);
             this.cameraCheckBox.Name = "cameraCheckBox";
             this.cameraCheckBox.Size = new System.Drawing.Size(123, 19);
             this.cameraCheckBox.TabIndex = 3;
@@ -115,11 +118,35 @@
             this.goButton.UseVisualStyleBackColor = true;
             this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
+            // calibrationLabel
+            // 
+            this.calibrationLabel.AutoSize = true;
+            this.calibrationLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.calibrationLabel.Location = new System.Drawing.Point(271, 117);
+            this.calibrationLabel.Name = "calibrationLabel";
+            this.calibrationLabel.Size = new System.Drawing.Size(108, 15);
+            this.calibrationLabel.TabIndex = 13;
+            this.calibrationLabel.Text = "Calibration (1 - 20):";
+            this.calibrationLabel.Click += new System.EventHandler(this.calibrationLabel_Click);
+            // 
+            // calibrationTrackBar
+            // 
+            this.calibrationTrackBar.Location = new System.Drawing.Point(270, 135);
+            this.calibrationTrackBar.Maximum = 20;
+            this.calibrationTrackBar.Minimum = 1;
+            this.calibrationTrackBar.Name = "calibrationTrackBar";
+            this.calibrationTrackBar.Size = new System.Drawing.Size(131, 45);
+            this.calibrationTrackBar.TabIndex = 14;
+            this.calibrationTrackBar.Value = 11;
+            this.calibrationTrackBar.Scroll += new System.EventHandler(this.calibrationTrackBar_Scroll);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 210);
+            this.Controls.Add(this.calibrationTrackBar);
+            this.Controls.Add(this.calibrationLabel);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.separationPanel);
             this.Controls.Add(this.sensitivityLabel);
@@ -132,6 +159,7 @@
             this.Text = "Cammov - Movement scanner for Windows";
             ((System.ComponentModel.ISupportInitialize)(this.cameraPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensitivityTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calibrationTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +174,7 @@
         private System.Windows.Forms.Label sensitivityLabel;
         private System.Windows.Forms.Panel separationPanel;
         private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.Label calibrationLabel;
+        private System.Windows.Forms.TrackBar calibrationTrackBar;
     }
 }
