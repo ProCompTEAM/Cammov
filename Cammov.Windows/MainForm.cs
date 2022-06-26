@@ -18,7 +18,7 @@ namespace Cammov.Windows
         {
             while (AutoReloadImageEnabled)
             {
-                cameraPictureBox.Image = App.Scanner.TakeImage();
+                cameraPictureBox.Image = App.Scanner.TakeMonoImage();
             }
 
             return Task.CompletedTask;
@@ -32,6 +32,29 @@ namespace Cammov.Windows
             {
                 Task.Run(StartAutoReloadImage);
             }
+        }
+
+        private void cameraButton_Click(object sender, System.EventArgs e)
+        {
+            cameraCheckBox.Checked = false;
+
+            new CameraForm().ShowDialog();
+        }
+
+        private void sensitivityTrackBar_Scroll(object sender, System.EventArgs e)
+        {
+            UpdateSensitivity(sensitivityTrackBar.Value);
+        }
+
+        private void sensitivityLabel_Click(object sender, System.EventArgs e)
+        {
+            sensitivityTrackBar.Value = sensitivityTrackBar.Maximum / 2;
+            UpdateSensitivity(sensitivityTrackBar.Value);
+        }
+
+        private void UpdateSensitivity(int sensitivity)
+        {
+            App.Scanner.Sensitivity = (byte)(256 - sensitivity);
         }
     }
 }
