@@ -10,6 +10,8 @@ namespace Cammov.Scanner.Controllers
 
         public long Tolerance { get; set; } = 10;
 
+        public Action OnInaction { get; set; }
+
         public Action OnMovement { get; set; }
 
         public Action OnJump { get; set; }
@@ -58,6 +60,8 @@ namespace Cammov.Scanner.Controllers
             }
             else
             {
+                Complete(OnInaction);
+
                 ScannedAction = ScannedMovementAction.Inaction;
             }
 

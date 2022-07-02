@@ -1,7 +1,11 @@
 ﻿using Cammov.Scanner.Controllers;
+using Cammov.Scanner.Enums;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace Cammov.Windows
 {
@@ -10,6 +14,8 @@ namespace Cammov.Windows
         private bool InScanning;
 
         private MovementController movementController;
+
+        private InputSimulator inputSimulator = new InputSimulator();
 
         public GoForm()
         {
@@ -20,20 +26,11 @@ namespace Cammov.Windows
         {
             movementController = new MovementController(App.Scanner);
 
+            movementController.OnInaction = OnInaction;
             movementController.OnMovement = OnMovement;
             movementController.OnJump = OnJump;
-        }
 
-        private void scanButton_Click(object sender, EventArgs e)
-        {
-            if(InScanning || movementController.Enabled)
-            {
-                StopScanning();
-            }
-            else
-            {
-                StartScanning();
-            }
+            StartScanning();
         }
 
         private Task SetupOnScreen()
@@ -47,13 +44,19 @@ namespace Cammov.Windows
             return Task.CompletedTask;
         }
 
+        private void OnInaction()
+        {
+            inputSimulator.Keyboard.KeyUp(VirtualKeyCode.ACCEPT);
+        }
+
         private void OnMovement()
         {
+            InputKey(VirtualKeyCode.VK_W);
         }
 
         private void OnJump()
         {
-            Console.Beep();
+            InputKey(VirtualKeyCode.SPACE);
         }
 
         private void GoForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -74,6 +77,22 @@ namespace Cammov.Windows
         {
             InScanning = false;
             movementController.Enabled = false;
+        }
+
+        private void InputKey(VirtualKeyCode keyCode)
+        {
+            Task.Run(() =>
+                inputSimulator.Keyboard
+                    .KeyDown(keyCode)
+                    .Sleep(300)
+                    .KeyUp(keyCode));
+        }
+
+        private void movementStatusLabel_Click(object sender, EventArgs e)
+        {
+            TopMost = true;
+
+            Text += "-> Locked";
         }
     }
 }
