@@ -126,18 +126,18 @@
             this.calibrationLabel.Name = "calibrationLabel";
             this.calibrationLabel.Size = new System.Drawing.Size(108, 15);
             this.calibrationLabel.TabIndex = 13;
-            this.calibrationLabel.Text = "Calibration (1 - 20):";
+            this.calibrationLabel.Text = "Calibration (1 - 2048):";
             this.calibrationLabel.Click += new System.EventHandler(this.calibrationLabel_Click);
             // 
             // calibrationTrackBar
             // 
             this.calibrationTrackBar.Location = new System.Drawing.Point(270, 135);
-            this.calibrationTrackBar.Maximum = 20;
+            this.calibrationTrackBar.Maximum = 2048;
             this.calibrationTrackBar.Minimum = 1;
             this.calibrationTrackBar.Name = "calibrationTrackBar";
             this.calibrationTrackBar.Size = new System.Drawing.Size(131, 45);
             this.calibrationTrackBar.TabIndex = 14;
-            this.calibrationTrackBar.Value = 11;
+            this.calibrationTrackBar.Value = 1024;
             this.calibrationTrackBar.Scroll += new System.EventHandler(this.calibrationTrackBar_Scroll);
             // 
             // MainForm

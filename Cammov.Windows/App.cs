@@ -2,6 +2,6 @@
 {
     public static class App
     {
-        public static Scanner.Scanner Scanner { get; } = new Scanner.Scanner();
+        public static Scanner.Sensor Scanner { get; } = new Scanner.Sensor();
     }
 }

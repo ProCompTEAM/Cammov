@@ -98,7 +98,7 @@ namespace Cammov.Windows
 
         private void StartGoMode()
         {
-            cameraCheckBox.Checked = false;
+            //cameraCheckBox.Checked = false;
 
             new GoForm().ShowDialog();
         }
